@@ -1,0 +1,135 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: inherit;
+}
+
+body {
+    background-color: rgb(6, 203, 203);
+    color: black;
+    overflow-x: hidden;
+}
+
+.other {admit-head p{
+    line-height: 24px;
+    font-size: 16.5px;
+    padding: 10px;
+}
+.ad-table{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+.ad-table h2{
+    padding: 10px;
+    font-size: 25px;
+}
+table{
+    width: 80%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    margin-left: 100px;
+}
+.para{
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 20px;
+}
+    margin-top: 100px;
+    height: 560px;
+    width: 70.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 15%;
+    margin-bottom: 100px;
+    background-color: white;
+    color: black;
+    position: fixed;
+    top: 0;
+}
+table,tbody,thead,tr,th,td{
+    border: 1px solid;
+}
+.admit-head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.admit-head h1{
+    color: #007bff;
+    padding: 10px;
+    font-size: 38.8px;
+}
+admit-head p{
+    line-height: 24px;
+    font-size: 16.5px;
+    padding: 10px;
+}
+.ad-table{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+.ad-table h2{
+    padding: 10px;
+    font-size: 25px;
+}
+table{
+    width: 80%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    margin-left: 100px;
+}
+.para{
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+import {Link} from 'react-router-dom';
+import './Header.css'
+const Header = () => {
+
+return(
+  <div> 
+    <header> 
+        <nav>
+            <Link to="/home">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/courses">Courses</Link>
+            <Link to="/contact">Contact</Link>
+        </nav>
+    </header>
+
+  </div>
+)
+}
+export default Header;
