@@ -1,135 +1,79 @@
-* {
-    margin: 0%;
-    padding: 0%;
-    box-sizing: inherit;
-}
-
-body {
-    background-color: rgb(6, 203, 203);
-    color: black;
-    overflow-x: hidden;
-}
-
-.other {admit-head p{
-    line-height: 24px;
-    font-size: 16.5px;
-    padding: 10px;
-}
-.ad-table{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-}
-.ad-table h2{
-    padding: 10px;
-    font-size: 25px;
-}
-table{
-    width: 80%;
-    margin-left: 50px;
-    margin-top: 20px;
-}
-.list{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    margin-left: 100px;
-}
-.para{
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    margin-left: 20px;
-}
-    margin-top: 100px;
-    height: 560px;
-    width: 70.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin-left: 15%;
-    margin-bottom: 100px;
-    background-color: white;
-    color: black;
-    position: fixed;
-    top: 0;
-}
-table,tbody,thead,tr,th,td{
-    border: 1px solid;
-}
-.admit-head{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-.admit-head h1{
-    color: #007bff;
-    padding: 10px;
-    font-size: 38.8px;
-}
-admit-head p{
-    line-height: 24px;
-    font-size: 16.5px;
-    padding: 10px;
-}
-.ad-table{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-}
-.ad-table h2{
-    padding: 10px;
-    font-size: 25px;
-}
-table{
-    width: 80%;
-    margin-left: 50px;
-    margin-top: 20px;
-}
-.list{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    margin-left: 100px;
-}
-.para{
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    margin-left: 20px;
-}
-
-
-
-
-
-
-
-
-
-import {Link} from 'react-router-dom';
-import './Header.css'
-const Header = () => {
-
-return(
-  <div> 
-    <header> 
-        <nav>
-            <Link to="/home">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/courses">Courses</Link>
-            <Link to="/contact">Contact</Link>
-        </nav>
+// / src/components/Header/Header.jsx
+import React, { useState } from "react"; // Import useState
+import { Link } from "react-router-dom";
+import "./Header.css";
+function Header() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State to control drawer visibility
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+  // Function to close drawer when a link is clicked
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+  return (
+    <header className="main-header">
+      {" "}
+      {/* Add a wrapper for header content */}
+      <div className="college-name">
+        <Link to="/">Vivekanand College</Link>{" "}
+        {/* College Name/Logo for desktop & mobile */}
+      </div>
+      {/* Desktop Navigation */}
+      <nav className="navbar desktop-nav">
+        <Link to="/" className="nav-item">
+          Home
+        </Link>
+        <Link to="/about" className="nav-item">
+          About
+        </Link>
+        <Link to="/courses" className="nav-item">
+          Courses
+        </Link>
+        <Link to="/contact" className="nav-item">
+          Contact
+        </Link>
+        <Link to="/admissions" className="nav-item btn primary-btn">
+          Apply Now!
+        </Link>{" "}
+        {/* Apply Now button */}
+      </nav>
+      {/* Mobile Hamburger Button */}
+      <button className="hamburger-menu" onClick={toggleDrawer}>
+        <span className="hamburger-icon"></span>
+        <span className="hamburger-icon"></span>
+        <span className="hamburger-icon"></span>
+      </button>
+      {/* Mobile Drawer Navigation */}
+      <nav className={drawer-nav ${isDrawerOpen ? "open" : ""}}>
+        <button className="close-drawer-btn" onClick={toggleDrawer}>
+          ✕
+        </button>
+        <Link to="/" className="nav-item" onClick={closeDrawer}>
+          Home
+        </Link>
+        <Link to="/about" className="nav-item" onClick={closeDrawer}>
+          About
+        </Link>
+        <Link to="/courses" className="nav-item" onClick={closeDrawer}>
+          Courses
+        </Link>
+        <Link to="/contact" className="nav-item" onClick={closeDrawer}>
+          Contact
+        </Link>
+        <Link
+          to="/admissions"
+          className="nav-item btn primary-btn"
+          onClick={closeDrawer}
+        >
+          Apply Now!
+        </Link>
+      </nav>
+      {/* Overlay when drawer is open */}
+      {isDrawerOpen && (
+        <div className="drawer-overlay" onClick={toggleDrawer}></div>
+      )}
     </header>
-
-  </div>
-)
+  );
 }
 export default Header;
